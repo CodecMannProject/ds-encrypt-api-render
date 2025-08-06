@@ -1,10 +1,11 @@
-from django.db import models
-from django.utils import timezone
-import os
 import binascii
-from datetime import timedelta
+from datetime import timedelta, timezone
+from django.db import models
+from django.contrib.auth.models import User
+import os
 
 class Key(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     key = models.CharField(max_length=64)
     salt = models.CharField(max_length=32)
     last_updated = models.DateTimeField(auto_now=True)

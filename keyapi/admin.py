@@ -9,7 +9,7 @@ from binascii import hexlify
 
 @admin.register(Key)
 class KeyAdmin(admin.ModelAdmin):
-    list_display = ['user', 'salt', 'regenerate_key', 'copy_token']
+    list_display = ['user', 'salt', 'last_updated', 'regenerate_key', 'copy_token']
 
     def regenerate_key(self, obj):
         return format_html(
